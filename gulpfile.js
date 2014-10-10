@@ -14,4 +14,5 @@ fs.readdirSync(__dirname + '/tasks').forEach(function (fileName) {
 gulp.task('default', ['lint', 'watch']);
 gulp.task('html', ['jade']);
 gulp.task('shrink', ['concat']);
+gulp.task('uglify', ['ugly']);
 gulp.task('css', ['stylus']);
