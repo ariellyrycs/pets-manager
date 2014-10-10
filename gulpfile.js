@@ -1,28 +1,15 @@
 'use strict';
 
 var gulp = require('gulp'),
-    jsHint = require('gulp-jshint'),
-    stylish = require('jshint-stylish'),
-    jade = require('gulp-jade'),
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    rename = require('gulp-rename'),
-    stylus = require('gulp-stylus'),
+    fs = require('fs');
 
-
-    jsHintTask = require('./tools/js-hint.js'),
-    watchTask = require('./tools/watch-js.js'),
-    jadeTask = require('./tools/jade.js'),
-    concatTask = require('./tools/concat-js.js'),
-    stylusTask = require('./tools/stylus-js.js');
-
-
-
-jsHintTask(gulp, jsHint, stylish);
-watchTask(gulp);
-jadeTask(gulp, jade);
-concatTask(gulp, concat, rename, uglify),
-stylusTask(gulp, stylus);
+//load all files in task dir
+var jsFiles = new RegExp(".(js)$", "i");
+fs.readdirSync(__dirname + '/tasks').forEach(function (fileName) {
+    if(jsFiles.test(fileName)) {
+        require(__dirname + '/tasks/' + fileName);
+    }
+});
 
 gulp.task('default', ['lint', 'watch']);
 gulp.task('html', ['jade']);
