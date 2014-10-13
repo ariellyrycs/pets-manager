@@ -11,8 +11,8 @@ fs.readdirSync(__dirname + '/tasks').forEach(function (fileName) {
     }
 });
 
-gulp.task('default', ['lint', 'watch']);
-gulp.task('html', ['jade']);
-gulp.task('shrink', ['concat']);
-gulp.task('uglify', ['ugly']);
-gulp.task('css', ['stylus']);
+
+gulp.task('build', ['remove', 'concat', 'ugly', 'stylus', 'jade', 'lint']);
+gulp.task('dev', ['remove', 'concat', 'ugly', 'stylus', 'jade', 'lint', 'watch', 'connectDev']);
+gulp.task('default', ['dev']);
+/* example https://github.com/TonyMtz/pets-tracker/blob/master/gulpfile.js#L91*/

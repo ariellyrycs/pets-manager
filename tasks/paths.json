@@ -1,0 +1,16 @@
+{
+    "src": {
+        "concat": "./build/scripts/**/*.js",
+        "jade": "./build/views/**/*.jade",
+        "jshint": "./build/**/*.js",
+        "stylus": "./build/**/*.styl",
+        "uglify": "./webapp/scripts/main.js",
+        "rimraf": "./webapp/**/*.+(html|css|js)"
+    },
+    "dest": {
+        "concat": "./webapp/scripts/",
+        "jade": "./webapp/views/",
+        "stylus": "./webapp/css/",
+        "uglify": "./webapp/scripts/"
+    }
+}

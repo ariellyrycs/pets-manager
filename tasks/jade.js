@@ -3,10 +3,12 @@
  */
 
 var gulp = require('gulp'),
-    jade = require('gulp-jade');
-
-gulp.task('jade', function() {
-    gulp.src('./build/views/**/*.jade')
+    jade = require('gulp-jade'),
+    path = require('./paths.json');
+    jadeHtmlConvert = function() {
+    return gulp.src(path.src.jade)
         .pipe(jade())
-        .pipe(gulp.dest('./webapp/views/'));
-});
+        .pipe(gulp.dest(path.dest.jade));
+};
+gulp.task('jade', ['remove'], jadeHtmlConvert);
+gulp.task('jade:onlyWatch', jadeHtmlConvert)
