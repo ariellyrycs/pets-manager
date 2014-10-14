@@ -4,7 +4,9 @@ var express = require('express'),
     mongoose = require('mongoose'),
     responder = require('./httpResponder'),
     bodyParser  = require('body-parser'),
-    app = express();
+    fs = require('fs'),
+    app = express(),
+    jsFiles;
 
 
 app.set('port', process.env.PORT || 3000);
@@ -16,9 +18,15 @@ app.use(function (req, res, next){
     next();
 });
 
+jsFiles = new RegExp(".(js)$", "i");
+fs.readdirSync(__dirname + '/routes').forEach(function (fileName) {
+    if(jsFiles.test(fileName)) {
+        require(__dirname + '/routes/' + fileName)(app);
+    }
+});
 
-require('./routes/pets.js')(app);
-// MongoDB configuration
+
+
 mongoose.connect('mongodb://localhost/pets', function(err) {
     if(err) {
         console.log('error connecting to MongoDB Database. ' + err);
