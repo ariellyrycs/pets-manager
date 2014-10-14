@@ -10,9 +10,9 @@ fs.readdirSync(__dirname + '/tasks').forEach(function (fileName) {
         require(__dirname + '/tasks/' + fileName);
     }
 });
-
-
+gulp.task('gulpFiles', ['lint:gulpFiles', 'watch:gulpFiles']);
+gulp.task('api', ['lint:APIFiles', 'watch:APIFiles']);
 gulp.task('build', ['remove', 'concat', 'ugly', 'stylus', 'jade', 'lint']);
-gulp.task('dev', ['remove', 'concat', 'ugly', 'stylus', 'jade', 'lint', 'watch', 'connectDev']);
+gulp.task('dev', ['api', 'gulpFiles', 'remove', 'concat', 'ugly', 'stylus', 'jade', 'lint', 'watch', 'connectDev']);
+
 gulp.task('default', ['dev']);
-/* example https://github.com/TonyMtz/pets-tracker/blob/master/gulpfile.js#L91*/

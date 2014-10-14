@@ -4,7 +4,7 @@
 
 
 function aakdlsadsadadsd() {
-    //'use strict';
-    console.log('dasdsasdsadadaasdsadsdasdsadsadsad');
+    'use strict';
+    console.log('sadjaaasasdsda');
 }
 aakdlsadsadadsd();

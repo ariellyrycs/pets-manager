@@ -1,7 +1,7 @@
 /**
  * Created by arobles on 10/10/14.
  */
-
+'use strict';
 var gulp = require('gulp'),
     uglify = require('gulp-uglifyjs'),
     path = require('./paths.json'),

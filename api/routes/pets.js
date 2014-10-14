@@ -3,6 +3,7 @@
  */
 
 module.exports = function (app, Datastore, db) {
+    'use strict';
     //pets
     db.pets = new Datastore({ filename: 'api/db/pets', autoload: true});
 

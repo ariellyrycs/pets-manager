@@ -2,6 +2,7 @@
  * Created by arobles on 10/10/14.
  */
 module.exports = function (app, Datastore, db) {
+    'use strict';
     db.owners = new Datastore({ filename: 'api/db/owners', autoload: true});
 
     app.get('/', function (req, res) {
@@ -24,7 +25,7 @@ module.exports = function (app, Datastore, db) {
     app.put('/owners/:id' , function (req, res) {
         db.owners.update({ _id: req.params.id}, req.body, function (err, num) {
             res.locals.respond(err, { success: num + " updated" });
-        })
+        });
     });
 
     app.delete('/owners/:id', function (req, res) {

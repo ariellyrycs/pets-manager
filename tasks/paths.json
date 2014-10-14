@@ -2,8 +2,10 @@
     "src": {
         "concat": "./build/scripts/**/*.js",
         "jade": "./build/views/**/*.jade",
-        "jshint": "./build/**/*.js",
-        "stylus": "./build/**/*.styl",
+        "jshint": ["./build/**/*.js"],
+        "jshintAPI": "./api/**/*.js",
+        "jshintGulp": ["./tasks/**/*.js", "./gulpfile.js"],
+        "stylus": "./build/style/**/*.styl",
         "uglify": "./webapp/scripts/main.js",
         "rimraf": "./webapp/**/*.+(html|css|js)"
     },

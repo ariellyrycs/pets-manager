@@ -1,6 +1,7 @@
 /**
  * Created by arobles on 10/10/14.
  */
+'use strict';
 module.exports = {
     setup: function (res) {
         return function (err, response) {
