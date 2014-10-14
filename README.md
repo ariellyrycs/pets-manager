@@ -1,5 +1,5 @@
 #pets-manager
-It's example of how to build a rest adapter with convenction of ember.js DS.RESTADAPTER
+It's an example of how to build a rest adapter with convenction of ember.js DS.RESTADAPTER using node.js and mongodb
 
 
 ##previously installed
