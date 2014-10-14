@@ -5,7 +5,7 @@ module.exports = function(app) {
     var findAllPets = function(req, res) {
         return Pet.find(function(err, pets) {
             if(!err) {
-                return res.send(pets);
+                return res.send({status: 'OK', pets:pets});
             } else {
                 res.statusCode = 500;
                 console.error('Error', res.statusCode, err.message);
@@ -77,7 +77,6 @@ module.exports = function(app) {
                         console.error('Error',res.statusCode,err.message);
                     }
                     return res.send(pet);
-
                 });
             });
         },
@@ -93,7 +92,7 @@ module.exports = function(app) {
                         return res.send({ status: 'OK' });
                     } else {
                         res.statusCode = 500;
-                        console.error('Error', res.statusCode,err.message);
+                        console.error('Error', res.statusCode, err.message);
                         return res.send({ error: 'Server error' });
                     }
                 });
