@@ -1,5 +1,5 @@
 {
-  "name": "pets-manager",
+  "name": "pets-manager-mongodb",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
