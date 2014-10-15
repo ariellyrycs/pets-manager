@@ -17,17 +17,15 @@ var gulp = require('gulp'),
         "events": ['stylus:onlyWatch', 'reloadConnection:css']
     }],
     asyncBuildTasks = function () {
-        var i,
-            length = asyncTaskControl.length,
-            run = function () {
+        var run = function () {
                 console.log('reloaded');
             },
             watch = function () {
                 gulp.run(this.asyncTaskControl, run);
             };
-        for(i = 0; i < length; i += 1) {
-            gulp.watch(asyncTaskControl[i].src, watch.bind({asyncTaskControl: asyncTaskControl[i].events}));
-        }
+        gulp.watch(asyncTaskControl[0].src, watch.bind({asyncTaskControl: asyncTaskControl[0].events}));
+        gulp.watch(asyncTaskControl[1].src, watch.bind({asyncTaskControl: asyncTaskControl[1].events}));
+        gulp.watch(asyncTaskControl[2].src, watch.bind({asyncTaskControl: asyncTaskControl[2].events}));
     },
     asyncGulpTasks = function () {
         var run = function () {
@@ -37,18 +35,9 @@ var gulp = require('gulp'),
                 gulp.run('lint:gulpFiles', run);
             };
         gulp.watch(path.src.jshintGulp, watch);
-    },
-    asyncAPITasks = function () {
-        var run = function () {
-                console.log('API Files');
-            },
-            watch = function () {
-                gulp.run('lint:APIFiles', run);
-            };
-        gulp.watch(path.src.jshintAPI, watch);
     };
 gulp.task('watch', ['lint'], asyncBuildTasks);
 gulp.task('watch:gulpFiles', ['lint:gulpFiles'], asyncGulpTasks);
-gulp.task('watch:APIFiles', ['lint:APIFiles'], asyncAPITasks);
+
 
 

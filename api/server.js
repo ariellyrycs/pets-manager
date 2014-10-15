@@ -8,7 +8,6 @@ var express = require('express'),
     app = express(),
     jsFiles;
 
-
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -40,7 +39,6 @@ app.listen(app.get('port'), function () {
 app.get('/', function(req, res) {
     res.send('Welcome');
 });
-
 
 
 

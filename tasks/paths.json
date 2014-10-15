@@ -7,7 +7,9 @@
         "jshintGulp": ["./tasks/**/*.js", "./gulpfile.js"],
         "stylus": "./build/style/**/*.styl",
         "uglify": "./webapp/scripts/main.js",
-        "rimraf": "./webapp/**/*.+(html|css|js)"
+        "remove": "./webapp/**/*.+(html|css|js)",
+        "nodemonServer": "./api/server.js",
+        "nodemonWatch": "api/**/*.*"
     },
     "dest": {
         "concat": "./webapp/scripts/",
